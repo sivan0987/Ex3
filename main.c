@@ -82,24 +82,24 @@ for (i=0; i<TXT; i++){
   txt[i]='\0';
  
 // ////////function 1/////////
-// char wordPrint [strlen(txt)];
-// int geo = calcGometryString(word,strlen(word));
-//   for(int i=0; i<strlen(txt); i++) {
-//     int count = 0;
-//     int k=0;
-//      memset(wordPrint, 0,strlen(txt) );
-//      for(int j=i; count < geo && txt[j]!=32 &&j<strlen(txt) ;j++) {
+char wordPrint [strlen(txt)];
+int geo = calcGometryString(word,strlen(word));
+  for(int i=0; i<strlen(txt); i++) {
+    int count = 0;
+    int k=0;
+     memset(wordPrint, 0,strlen(txt) );
+     for(int j=i; count < geo && txt[j]!=32 &&j<strlen(txt) ;j++) {
                 
-//              char tem [1];            
-//              count += calcGometryChar(txt[j]);
-//             wordPrint[k]=txt[j];
-//              k++;
-//              if(count == geo){
-//                  printf("%s\n",wordPrint);
-//              }    
+             char tem [1];            
+             count += calcGometryChar(txt[j]);
+            wordPrint[k]=txt[j];
+             k++;
+             if(count == geo){
+                 printf("%s",wordPrint);
+             }    
            
-//  }
-//  }
+ }
+ }
 
 // /////function 2////////
 char atb [strlen(word)+1];
@@ -172,57 +172,57 @@ atbashReverse(atb, strlen(word) ,rev);
         }
     }
 }
-// ///////function 3/////////////
-// char printWord [strlen(word)+1];
-// printWord[strlen(word)+1]='\0';
-// int p=0;
-// char temp[strlen(word)];
-// int numOfDig=strlen(word);
-// strcpy(temp,word);
-// int find=0;
-// int out =0;
-// // int path=0;
-// for(int i=0; i<strlen(txt); i++) {
-//     out=0;
-//     strcpy(temp,word);
-//     numOfDig=strlen(word);
-//     p=0;
-//       for(int j=i; j<strlen(txt)&& out==0 ; j++) {
-//          if(txt[j]==32){
-//                  printWord[p]=txt[j]; 
-//                  p++;
-//                   continue;
-//               }
-//           for (int k = 0; k < strlen(word) ; k++){
+///////function 3/////////////
+char printWord [strlen(word)+1];
+printWord[strlen(word)+1]='\0';
+int p=0;
+char temp[strlen(word)];
+int numOfDig=strlen(word);
+strcpy(temp,word);
+int find=0;
+int out =0;
+// int path=0;
+for(int i=0; i<strlen(txt); i++) {
+    out=0;
+    strcpy(temp,word);
+    numOfDig=strlen(word);
+    p=0;
+      for(int j=i; j<strlen(txt)&& out==0 ; j++) {
+         if(txt[j]==32){
+                 printWord[p]=txt[j]; 
+                 p++;
+                  continue;
+              }
+          for (int k = 0; k < strlen(word) ; k++){
             
-//                 if(txt[j]==temp[k]){
-//                     find=1;
-//                     printWord[p]=txt[j];
-//                     temp[k]= '~';
-//                     break;}
-//       }
+                if(txt[j]==temp[k]){
+                    find=1;
+                    printWord[p]=txt[j];
+                    temp[k]= '~';
+                    break;}
+      }
    
-//       if(find==1){
+      if(find==1){
 
-//             numOfDig=numOfDig-1;
-//             p++;
-//             find=0;
-//       }
-//       else{
-//             out=1;
-//             strcpy(temp,word);
-//             numOfDig=strlen(word);
-//             p=0;
+            numOfDig=numOfDig-1;
+            p++;
+            find=0;
+      }
+      else{
+            out=1;
+            strcpy(temp,word);
+            numOfDig=strlen(word);
+            p=0;
 
-//       }
+      }
       
-//       if(numOfDig==0){
-//         printf("%s",printWord);
-//         numOfDig=strlen(word);
-//       }
+      if(numOfDig==0){
+        printf("%s",printWord);
+        numOfDig=strlen(word);
+      }
         
-// }
-// }
+}
+}
 
 return 0;
 }
