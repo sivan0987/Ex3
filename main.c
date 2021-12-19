@@ -82,26 +82,44 @@ for (i=0; i<TXT; i++){
   txt[i]='\0';
  
 // ////////function 1/////////
+printf("Gematria Sequences: ");
 char wordPrint [strlen(txt)];
 int geo = calcGometryString(word,strlen(word));
+int first=0;
   for(int i=0; i<strlen(txt); i++) {
     int count = 0;
     int k=0;
+    int len=strlen(word);
      memset(wordPrint, 0,strlen(txt) );
-     for(int j=i; count < geo && txt[j]!=32 &&j<strlen(txt) ;j++) {
-                
-             char tem [1];            
-             count += calcGometryChar(txt[j]);
+     
+     for(int j=i; count < geo && txt[j]!=32 &&j<j+len ;j++) {
+        
+            if(calcGometryChar(txt[j])==0){
+                len++;
+            }    
+            count += calcGometryChar(txt[j]);
+            if(count==0){
+                break;
+            }
             wordPrint[k]=txt[j];
-             k++;
-             if(count == geo){
-                 printf("%s",wordPrint);
-             }    
-           
- }
- }
-
+            k++;
+             
+            if(count == geo){
+                if(first==1){
+                    printf("~");
+                }
+                printf("%s",wordPrint);
+                first=1;
+                break;
+            } 
+            }
+            }
+                
+ 
+printf("\n");
 // /////function 2////////
+first=0;
+printf("Atbash Sequences: ");
 char atb [strlen(word)+1];
 atb[strlen(word)+1]='\0';
 char rev [strlen(word)+1];
@@ -111,6 +129,7 @@ atbash(word, strlen(word),atb);
 atbashReverse(atb, strlen(word) ,rev);
 
  for(int i=0; i<strlen(txt); i++) {
+    
     int br=0;
     int bf=0;
     int r=0;
@@ -126,7 +145,7 @@ atbashReverse(atb, strlen(word) ,rev);
     // wordPrintA[strlen(word)+1]='\0';
     memset(wordPrintR, '0', strlen(txt));
     memset(wordPrintA, '0', strlen(txt));
-    
+        
     for(int j=i; j<strlen(txt)  &&  (br==0||bf==0); j++) {
         if(txt[j]==32){
             if(br==0){
@@ -156,23 +175,31 @@ atbashReverse(atb, strlen(word) ,rev);
             bf=1;
         }
         if(r==strlen(word)){
-           printf("%s" , wordPrintR);
+            wordPrintR[rw]='\0';
+            if(first==1){
+                    printf("~");}
+                first=1;
+            printf("%s" , wordPrintR);
            r=0;
-         //  bf=0;
-        //    a=0;
-        // br=0;
+         
         }
         
         if(a==strlen(word)){
+            wordPrintA[aw]='\0';
+            if(first==1){
+                    printf("~");
+                }
+                first=1;
             printf("%s" ,wordPrintA);
             a=0;
-          //  br=0;
-        //     r=0;
-        //    bf=0;
+         
         }
     }
 }
+printf("\n");
 ///////function 3/////////////
+first=0;
+printf("Anagram Sequences: ");
 char printWord [strlen(word)+1];
 printWord[strlen(word)+1]='\0';
 int p=0;
@@ -217,6 +244,10 @@ for(int i=0; i<strlen(txt); i++) {
       }
       
       if(numOfDig==0){
+          if(first==1){
+                    printf("~");
+                }
+                first=1;
         printf("%s",printWord);
         numOfDig=strlen(word);
       }
@@ -224,5 +255,4 @@ for(int i=0; i<strlen(txt); i++) {
 }
 }
 
-return 0;
-}
+return 0;}
