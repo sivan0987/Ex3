@@ -92,7 +92,7 @@ int first=0;
     int len=strlen(word);
      memset(wordPrint, 0,strlen(txt) );
      
-     for(int j=i; count < geo && txt[j]!=32 &&j<j+len ;j++) {
+     for(int j=i; count < geo && txt[j]!=32 &&j<j+len &&j<strlen(txt);j++) {
         
             if(calcGometryChar(txt[j])==0){
                 len++;
@@ -103,7 +103,7 @@ int first=0;
             }
             wordPrint[k]=txt[j];
             k++;
-             
+            
             if(count == geo){
                 if(first==1){
                     printf("~");
