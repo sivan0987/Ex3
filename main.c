@@ -80,7 +80,7 @@ for (i=0; i<TXT; i++){
 	txt[i] = ch;	
 	}
   txt[i]='\0';
- 
+ //txt[j]!=32
 // ////////function 1/////////
 printf("Gematria Sequences: ");
 char wordPrint [strlen(txt)];
@@ -92,7 +92,7 @@ int first=0;
     int len=strlen(word);
      memset(wordPrint, 0,strlen(txt) );
      
-     for(int j=i; count < geo && txt[j]!=32 &&j<j+len &&j<strlen(txt);j++) {
+     for(int j=i; count < geo  &&j<j+len &&j<strlen(txt);j++) {
         
             if(calcGometryChar(txt[j])==0){
                 len++;
@@ -210,6 +210,9 @@ int find=0;
 int out =0;
 // int path=0;
 for(int i=0; i<strlen(txt); i++) {
+    if(txt[i]==32){
+        continue;
+    }
     out=0;
     strcpy(temp,word);
     numOfDig=strlen(word);
