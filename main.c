@@ -109,6 +109,7 @@ int first=0;
                 if(first==1){
                     printf("~");
                 }
+                wordPrint[k]='\0';
                 printf("%s",wordPrint);
                 first=1;
                 break;
@@ -201,11 +202,12 @@ printf("\n");
 ///////function 3/////////////
 first=0;
 printf("Anagram Sequences: ");
-char printWord [strlen(word)+1];
-printWord[strlen(word)+1]='\0';
+char printWord [strlen(txt)];
+//printWord[strlen(word)+1]='\0';
 int p=0;
 char temp[strlen(word)];
 int numOfDig=strlen(word);
+int numOfprintword=strlen(word);
 strcpy(temp,word);
 int find=0;
 int out =0;
@@ -222,9 +224,10 @@ for(int i=0; i<strlen(txt); i++) {
          if(txt[j]==32){
                  printWord[p]=txt[j]; 
                  p++;
+                 numOfprintword++;
                   continue;
               }
-          for (int k = 0; k < strlen(word) ; k++){
+          for (int k = 0; k < numOfprintword ; k++){
             
                 if(txt[j]==temp[k]){
                     find=1;
@@ -248,7 +251,7 @@ for(int i=0; i<strlen(txt); i++) {
       }
       
       if(numOfDig==0){
-           printWord[strlen(word)]='\0';
+           printWord[numOfprintword]='\0';
           if(first==1){
                     printf("~");
                 }
@@ -258,6 +261,7 @@ for(int i=0; i<strlen(txt); i++) {
       }
         
 }
+
 }
 
 return 0;}
