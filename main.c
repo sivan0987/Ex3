@@ -30,6 +30,7 @@ return count;}
 void atbashReverse(char *word ,int len , char *temp2){
 
 int j=len-1;
+char a;
 for(int i=0;i<len;i++){
     temp2[j]=word[i];
     j--;
@@ -114,8 +115,10 @@ int first=0;
             } 
             }
             }
-// /////function 2////////
+                
+ 
 printf("\n");
+// /////function 2////////
 first=0;
 printf("Atbash Sequences: ");
 char atb [strlen(word)+1];
@@ -194,8 +197,8 @@ atbashReverse(atb, strlen(word) ,rev);
         }
     }
 }
-///////function 3/////////////
 printf("\n");
+///////function 3/////////////
 first=0;
 printf("Anagram Sequences: ");
 char printWord [strlen(word)+1];
@@ -245,6 +248,7 @@ for(int i=0; i<strlen(txt); i++) {
       }
       
       if(numOfDig==0){
+           printWord[strlen(word)]='\0';
           if(first==1){
                     printf("~");
                 }
@@ -255,6 +259,5 @@ for(int i=0; i<strlen(txt); i++) {
         
 }
 }
-printf("\n");
 
 return 0;}
