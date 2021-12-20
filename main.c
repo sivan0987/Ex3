@@ -60,7 +60,7 @@ for(i=0;i<len;i++){
 }
 int main (){
 
-char word [WORD];
+char word [WORD+1];
 char txt [TXT+1];
 
 char ch;
@@ -80,9 +80,9 @@ for (i=0; i<TXT; i++){
 	txt[i] = ch;	
 	}
   txt[i]='\0';
-  scanf("%c" , &ch);
- //txt[j]!=32
-// ////////function 1/////////
+scanf("%c" , &ch);
+ 
+///////////function 1/////////
 printf("Gematria Sequences: ");
 char wordPrint [strlen(txt)];
 int geo = calcGometryString(word,strlen(word));
@@ -126,6 +126,8 @@ char atb [strlen(word)+1];
 atb[strlen(word)+1]='\0';
 char rev [strlen(word)+1];
 rev[strlen(word)+1]='\0';
+memset(atb, 0,strlen(txt) );
+memset(rev, 0,strlen(txt) );
 
 atbash(word, strlen(word),atb);
 atbashReverse(atb, strlen(word) ,rev);
@@ -219,6 +221,7 @@ for(int i=0; i<strlen(txt); i++) {
     out=0;
     strcpy(temp,word);
     numOfDig=strlen(word);
+    numOfprintword=strlen(word);
     p=0;
       for(int j=i; j<strlen(txt)&& out==0 ; j++) {
          if(txt[j]==32){
