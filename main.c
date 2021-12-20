@@ -80,6 +80,7 @@ for (i=0; i<TXT; i++){
 	txt[i] = ch;	
 	}
   txt[i]='\0';
+  scanf("%c" , &ch);
  //txt[j]!=32
 // ////////function 1/////////
 printf("Gematria Sequences: ");
